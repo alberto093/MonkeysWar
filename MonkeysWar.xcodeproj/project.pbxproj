@@ -7,26 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3370B8928D5C033004E8764 /* Monkeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3370B8828D5C033004E8764 /* Monkeys.swift */; };
 		D36F0D2928D326B100C21426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F0D2828D326B100C21426 /* AppDelegate.swift */; };
-		D36F0D2B28D326B100C21426 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D36F0D2A28D326B100C21426 /* GameScene.sks */; };
 		D36F0D2D28D326B100C21426 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D36F0D2C28D326B100C21426 /* Actions.sks */; };
 		D36F0D2F28D326B100C21426 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F0D2E28D326B100C21426 /* GameScene.swift */; };
 		D36F0D3128D326B100C21426 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F0D3028D326B100C21426 /* GameViewController.swift */; };
 		D36F0D3428D326B100C21426 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36F0D3228D326B100C21426 /* Main.storyboard */; };
 		D36F0D3628D326B300C21426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D36F0D3528D326B300C21426 /* Assets.xcassets */; };
 		D36F0D3928D326B300C21426 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36F0D3728D326B300C21426 /* LaunchScreen.storyboard */; };
+		D36F0D4128D3483B00C21426 /* MonkeySpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F0D4028D3483B00C21426 /* MonkeySpriteNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3370B8828D5C033004E8764 /* Monkeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monkeys.swift; sourceTree = "<group>"; };
 		D36F0D2528D326B100C21426 /* MonkeysWar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonkeysWar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36F0D2828D326B100C21426 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D36F0D2A28D326B100C21426 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		D36F0D2C28D326B100C21426 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		D36F0D2E28D326B100C21426 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		D36F0D3028D326B100C21426 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		D36F0D3328D326B100C21426 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D36F0D3528D326B300C21426 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D36F0D3828D326B300C21426 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D36F0D4028D3483B00C21426 /* MonkeySpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonkeySpriteNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D3370B8728D5C013004E8764 /* Monkeys */ = {
+			isa = PBXGroup;
+			children = (
+				D36F0D4028D3483B00C21426 /* MonkeySpriteNode.swift */,
+				D3370B8828D5C033004E8764 /* Monkeys.swift */,
+			);
+			path = Monkeys;
+			sourceTree = "<group>";
+		};
 		D36F0D1C28D326B100C21426 = {
 			isa = PBXGroup;
 			children = (
@@ -60,10 +71,10 @@
 			isa = PBXGroup;
 			children = (
 				D36F0D2828D326B100C21426 /* AppDelegate.swift */,
-				D36F0D2A28D326B100C21426 /* GameScene.sks */,
 				D36F0D2C28D326B100C21426 /* Actions.sks */,
 				D36F0D2E28D326B100C21426 /* GameScene.swift */,
 				D36F0D3028D326B100C21426 /* GameViewController.swift */,
+				D3370B8728D5C013004E8764 /* Monkeys */,
 				D36F0D3228D326B100C21426 /* Main.storyboard */,
 				D36F0D3528D326B300C21426 /* Assets.xcassets */,
 				D36F0D3728D326B300C21426 /* LaunchScreen.storyboard */,
@@ -130,7 +141,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D36F0D3428D326B100C21426 /* Main.storyboard in Resources */,
-				D36F0D2B28D326B100C21426 /* GameScene.sks in Resources */,
 				D36F0D3628D326B300C21426 /* Assets.xcassets in Resources */,
 				D36F0D3928D326B300C21426 /* LaunchScreen.storyboard in Resources */,
 				D36F0D2D28D326B100C21426 /* Actions.sks in Resources */,
@@ -146,6 +156,8 @@
 			files = (
 				D36F0D2F28D326B100C21426 /* GameScene.swift in Sources */,
 				D36F0D3128D326B100C21426 /* GameViewController.swift in Sources */,
+				D36F0D4128D3483B00C21426 /* MonkeySpriteNode.swift in Sources */,
+				D3370B8928D5C033004E8764 /* Monkeys.swift in Sources */,
 				D36F0D2928D326B100C21426 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,9 +310,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -326,9 +338,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
