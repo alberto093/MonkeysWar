@@ -10,22 +10,31 @@ import SpriteKit
 class MonkeySpriteNode: SKSpriteNode {
     enum Velocity {
         case slow
-        case normale
+        case normal
         case fast
+        
+        var pointsPerSec: CGFloat {
+            switch self {
+            case .slow:
+                return 15
+            case .normal:
+                return 30
+            case .fast:
+                return 45
+            }
+        }
     }
     
-    let isGrabEnabled: Bool
-    private(set) var hasArmor: Bool
-    let velocity: Velocity
+    var isGrabEnabled = false
+    var canThrow = false
+    var canJump = false
+    var hasArmor = false
+    var velocity: Velocity = .normal
+    var hitPoints: Int = 0
     
-    init(isGrabEnabled: Bool, hasArmor: Bool, velocity: Velocity, imageName: String) {
-        self.isGrabEnabled = isGrabEnabled
-        self.hasArmor = hasArmor
-        self.velocity = velocity
-        super.init(texture: SKTexture(imageNamed: imageName))
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var walkTextures: [SKTexture] = []
+    var jumpTextures: [SKTexture] = []
+    var hitTextures: [SKTexture] = []
+    var throwTextures: [SKTexture] = []
+    var hurtTextures: [SKTexture] = []
 }
