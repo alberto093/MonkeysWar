@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D322C4E828D61F5600144E6D /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = D322C4E728D61F5600144E6D /* Level.swift */; };
+		D322C4ED28D6219900144E6D /* Monkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D322C4EC28D6219900144E6D /* Monkey.swift */; };
+		D322C4F128D6222C00144E6D /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D322C4F028D6222C00144E6D /* Levels.swift */; };
 		D3370B8928D5C033004E8764 /* Monkeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3370B8828D5C033004E8764 /* Monkeys.swift */; };
+		D3370B8B28D5D640004E8764 /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3370B8A28D5D640004E8764 /* GameEngine.swift */; };
 		D36F0D2928D326B100C21426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F0D2828D326B100C21426 /* AppDelegate.swift */; };
 		D36F0D2D28D326B100C21426 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D36F0D2C28D326B100C21426 /* Actions.sks */; };
 		D36F0D2F28D326B100C21426 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F0D2E28D326B100C21426 /* GameScene.swift */; };
@@ -19,7 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D322C4E728D61F5600144E6D /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		D322C4EC28D6219900144E6D /* Monkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monkey.swift; sourceTree = "<group>"; };
+		D322C4F028D6222C00144E6D /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		D3370B8828D5C033004E8764 /* Monkeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monkeys.swift; sourceTree = "<group>"; };
+		D3370B8A28D5D640004E8764 /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 		D36F0D2528D326B100C21426 /* MonkeysWar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonkeysWar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36F0D2828D326B100C21426 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D36F0D2C28D326B100C21426 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -42,10 +50,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D322C4E928D61F5900144E6D /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				D322C4E728D61F5600144E6D /* Level.swift */,
+				D322C4F028D6222C00144E6D /* Levels.swift */,
+			);
+			path = Levels;
+			sourceTree = "<group>";
+		};
 		D3370B8728D5C013004E8764 /* Monkeys */ = {
 			isa = PBXGroup;
 			children = (
 				D36F0D4028D3483B00C21426 /* MonkeySpriteNode.swift */,
+				D322C4EC28D6219900144E6D /* Monkey.swift */,
 				D3370B8828D5C033004E8764 /* Monkeys.swift */,
 			);
 			path = Monkeys;
@@ -74,6 +92,8 @@
 				D36F0D2C28D326B100C21426 /* Actions.sks */,
 				D36F0D2E28D326B100C21426 /* GameScene.swift */,
 				D36F0D3028D326B100C21426 /* GameViewController.swift */,
+				D3370B8A28D5D640004E8764 /* GameEngine.swift */,
+				D322C4E928D61F5900144E6D /* Levels */,
 				D3370B8728D5C013004E8764 /* Monkeys */,
 				D36F0D3228D326B100C21426 /* Main.storyboard */,
 				D36F0D3528D326B300C21426 /* Assets.xcassets */,
@@ -154,8 +174,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D322C4F128D6222C00144E6D /* Levels.swift in Sources */,
 				D36F0D2F28D326B100C21426 /* GameScene.swift in Sources */,
+				D322C4E828D61F5600144E6D /* Level.swift in Sources */,
+				D3370B8B28D5D640004E8764 /* GameEngine.swift in Sources */,
 				D36F0D3128D326B100C21426 /* GameViewController.swift in Sources */,
+				D322C4ED28D6219900144E6D /* Monkey.swift in Sources */,
 				D36F0D4128D3483B00C21426 /* MonkeySpriteNode.swift in Sources */,
 				D3370B8928D5C033004E8764 /* Monkeys.swift in Sources */,
 				D36F0D2928D326B100C21426 /* AppDelegate.swift in Sources */,
