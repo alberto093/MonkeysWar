@@ -29,7 +29,7 @@ class GameEngine: NSObject {
     
     private let houseHPNode = SKSpriteNode(color: UIColor(red: 200.0 / 255, green: 130.0 / 255, blue: 85.0 / 255, alpha: 1), size: CGSize(width: Constants.houseHPMaxWidth, height: 8))
     private let progressCount = SKLabelNode(text: "0")
-    private let endGameLabel = SKLabelNode(fontNamed: UIFont.boldSystemFont(ofSize: 50).fontName)
+    private let endGameLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
     
     private var grabbingMonkeys: [UITouch: MonkeySpriteNode] = [:]
     private var gameIsEnd = false
@@ -126,7 +126,7 @@ class GameEngine: NSObject {
         
         progressCount.fontColor = SKColor(white: 1, alpha: 1)
         progressCount.fontSize = 10
-        progressCount.fontName = UIFont.boldSystemFont(ofSize: 10).fontName
+        progressCount.fontName = "AvenirNext-Medium"
         progressCount.position = CGPoint(x: 25, y: topRightBox.size.height - 15)
         
         let houseIconNode = SKSpriteNode(imageNamed: "houseIcon")
@@ -150,6 +150,7 @@ class GameEngine: NSObject {
         topRightBox.zPosition = CGFloat(level.monkeys.count + 1)
         scene.addChild(topRightBox)
         
+        endGameLabel.fontSize = 50
         endGameLabel.verticalAlignmentMode = .center
         endGameLabel.horizontalAlignmentMode = .center
         endGameLabel.position = CGPoint(x: scene.size.width / 2, y: scene.size.height / 2)
@@ -164,7 +165,7 @@ class GameEngine: NSObject {
             scene.addChild(endGameLabel)
             gameIsEnd = true
         } else if !scene.children.contains(where: { $0 is MonkeySpriteNode }) {
-            endGameLabel.fontColor = UIColor(red: 125 / 255, green: 180 / 255, blue: 76 / 255, alpha: 1)
+            endGameLabel.fontColor = UIColor(red: 15 / 255, green: 50 / 255, blue: 30 / 255, alpha: 1)
             endGameLabel.text = "WIN!"
             scene.addChild(endGameLabel)
             gameIsEnd = true
