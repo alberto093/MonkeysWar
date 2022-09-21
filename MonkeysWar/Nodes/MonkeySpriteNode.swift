@@ -18,9 +18,9 @@ class MonkeySpriteNode: SKSpriteNode {
             case .slow:
                 return 15
             case .normal:
-                return 30
+                return 35
             case .fast:
-                return 45
+                return 55
             }
         }
     }
@@ -31,7 +31,9 @@ class MonkeySpriteNode: SKSpriteNode {
     var hasArmor = false
     var velocity: Velocity = .normal
     var hitPoints: Int = 0
+    var lifePoints: Int = 0
     
+    var idleTextures: [SKTexture] = []
     var walkTextures: [SKTexture] = []
     var jumpTextures: [SKTexture] = []
     var hitTextures: [SKTexture] = []

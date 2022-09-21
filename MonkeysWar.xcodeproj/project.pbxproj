@@ -20,6 +20,7 @@
 		D36F0D3628D326B300C21426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D36F0D3528D326B300C21426 /* Assets.xcassets */; };
 		D36F0D3928D326B300C21426 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36F0D3728D326B300C21426 /* LaunchScreen.storyboard */; };
 		D36F0D4128D3483B00C21426 /* MonkeySpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36F0D4028D3483B00C21426 /* MonkeySpriteNode.swift */; };
+		D3834FAD28DA1C5700248FB7 /* ProgressBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3834FAC28DA1C5700248FB7 /* ProgressBarNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		D36F0D3528D326B300C21426 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D36F0D3828D326B300C21426 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D36F0D4028D3483B00C21426 /* MonkeySpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonkeySpriteNode.swift; sourceTree = "<group>"; };
+		D3834FAC28DA1C5700248FB7 /* ProgressBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +64,6 @@
 		D3370B8728D5C013004E8764 /* Monkeys */ = {
 			isa = PBXGroup;
 			children = (
-				D36F0D4028D3483B00C21426 /* MonkeySpriteNode.swift */,
 				D322C4EC28D6219900144E6D /* Monkey.swift */,
 				D3370B8828D5C033004E8764 /* Monkeys.swift */,
 			);
@@ -89,17 +90,43 @@
 			isa = PBXGroup;
 			children = (
 				D36F0D2828D326B100C21426 /* AppDelegate.swift */,
-				D36F0D2C28D326B100C21426 /* Actions.sks */,
-				D36F0D2E28D326B100C21426 /* GameScene.swift */,
-				D36F0D3028D326B100C21426 /* GameViewController.swift */,
-				D3370B8A28D5D640004E8764 /* GameEngine.swift */,
+				D3834FB028DA1C9C00248FB7 /* Gameplay */,
 				D322C4E928D61F5900144E6D /* Levels */,
 				D3370B8728D5C013004E8764 /* Monkeys */,
-				D36F0D3228D326B100C21426 /* Main.storyboard */,
-				D36F0D3528D326B300C21426 /* Assets.xcassets */,
-				D36F0D3728D326B300C21426 /* LaunchScreen.storyboard */,
+				D3834FAE28DA1C5A00248FB7 /* Nodes */,
+				D3834FAF28DA1C7A00248FB7 /* Supporting files */,
 			);
 			path = MonkeysWar;
+			sourceTree = "<group>";
+		};
+		D3834FAE28DA1C5A00248FB7 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				D36F0D4028D3483B00C21426 /* MonkeySpriteNode.swift */,
+				D3834FAC28DA1C5700248FB7 /* ProgressBarNode.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		D3834FAF28DA1C7A00248FB7 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				D36F0D2C28D326B100C21426 /* Actions.sks */,
+				D36F0D3528D326B300C21426 /* Assets.xcassets */,
+				D36F0D3728D326B300C21426 /* LaunchScreen.storyboard */,
+				D36F0D3228D326B100C21426 /* Main.storyboard */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		D3834FB028DA1C9C00248FB7 /* Gameplay */ = {
+			isa = PBXGroup;
+			children = (
+				D3370B8A28D5D640004E8764 /* GameEngine.swift */,
+				D36F0D2E28D326B100C21426 /* GameScene.swift */,
+				D36F0D3028D326B100C21426 /* GameViewController.swift */,
+			);
+			path = Gameplay;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +205,7 @@
 				D36F0D2F28D326B100C21426 /* GameScene.swift in Sources */,
 				D322C4E828D61F5600144E6D /* Level.swift in Sources */,
 				D3370B8B28D5D640004E8764 /* GameEngine.swift in Sources */,
+				D3834FAD28DA1C5700248FB7 /* ProgressBarNode.swift in Sources */,
 				D36F0D3128D326B100C21426 /* GameViewController.swift in Sources */,
 				D322C4ED28D6219900144E6D /* Monkey.swift in Sources */,
 				D36F0D4128D3483B00C21426 /* MonkeySpriteNode.swift in Sources */,
