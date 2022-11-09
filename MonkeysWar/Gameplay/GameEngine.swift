@@ -204,7 +204,7 @@ class GameEngine: NSObject {
         monkey.physicsBody?.affectedByGravity = true
         monkey.physicsBody?.applyImpulse(vector)
         
-        #warning("Make the correct formula of time of flight")
+        // Time of flight formula
         // t = [V₀ * sin(α) + √((V₀ * sin(α))² + 2 * g * h)] / g
         let fallDuration: TimeInterval = sqrt((2 * (monkey.position.y - groundY) / Constants.pointsInMeter) / -scene.physicsWorld.gravity.dy)
         
@@ -216,8 +216,6 @@ class GameEngine: NSObject {
                 .run { [weak self] in self?.activate(monkey: monkey, delay: 0.75) }
             ]))
         }
-        
-        
     }
     
     private func activate(monkey: MonkeySpriteNode, delay: TimeInterval) {
