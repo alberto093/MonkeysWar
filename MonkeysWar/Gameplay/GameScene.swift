@@ -11,7 +11,7 @@ import GameplayKit
 class GameScene: SKScene {
     private enum Constants {
         static let groundYMultiplier: CGFloat = 0.1845
-        static let towerXMultiplier: CGFloat = 0.6
+        static let towerXMultiplier: CGFloat = 0.5
     }
     
     private let background = SKSpriteNode(imageNamed: "background")
@@ -24,14 +24,15 @@ class GameScene: SKScene {
         insertChild(background, at: 0)
 
         let groundY = Constants.groundYMultiplier * background.size.height
+        let towerSize = size.width * 0.2
         engine = GameEngine(
             scene: self,
             groundY: groundY,
             towerFrame: CGRect(
                 x: Constants.towerXMultiplier * background.size.width,
                 y: groundY,
-                width: 90,
-                height: 90),
+                width: towerSize,
+                height: towerSize),
             level: Levels.day1)
 
         engine.start()

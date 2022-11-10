@@ -13,14 +13,14 @@ class MonkeySpriteNode: SKSpriteNode {
         case normal
         case fast
         
-        var pointsPerSec: CGFloat {
+        var metersPerSec: CGFloat {
             switch self {
             case .slow:
-                return 15
+                return 0.4
             case .normal:
-                return 35
+                return 0.9
             case .fast:
-                return 55
+                return 1.85
             }
         }
     }

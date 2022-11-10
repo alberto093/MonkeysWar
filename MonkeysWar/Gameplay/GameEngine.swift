@@ -18,7 +18,7 @@ class GameEngine: NSObject {
     
     private enum Constants {
         static let pointsInMeter: CGFloat = 40
-        static let houseHPMaxWidth: CGFloat = 48
+        static let referenceScreenWidth: CGFloat = 750
     }
     
     let scene: SKScene
@@ -27,7 +27,7 @@ class GameEngine: NSObject {
     let level: Level
     private let houseHPMax: Int
     
-    private let houseHPNode = SKSpriteNode(color: UIColor(red: 200.0 / 255, green: 130.0 / 255, blue: 85.0 / 255, alpha: 1), size: CGSize(width: Constants.houseHPMaxWidth, height: 8))
+    private let houseHPNode = SKSpriteNode(color: UIColor(red: 200.0 / 255, green: 130.0 / 255, blue: 85.0 / 255, alpha: 1), size: .zero)
     private let progressCount = SKLabelNode(text: "0")
     private let endGameLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
     
@@ -62,6 +62,8 @@ class GameEngine: NSObject {
         let previousPosition = touch.previousLocation(in: scene)
         let dx = position.x - previousPosition.x
         let dy = position.y - previousPosition.y
+        let impulseX = dx > Constants.pointsInMeter ? dx * (Constants.pointsInMeter / 2) : dx * Constants.pointsInMeter
+        let impulseY = (dy > Constants.pointsInMeter * 2) ? dy * (Constants.pointsInMeter / 2) : dy * Constants.pointsInMeter
         
         switch touch.phase {
         case .began:
@@ -78,7 +80,7 @@ class GameEngine: NSObject {
                 grabbingMonkeys.removeValue(forKey: touch)
                 drop(
                     monkey: monkey,
-                    vector: CGVector(dx: dx * 20, dy: dy * 35),
+                    vector: CGVector(dx: impulseX, dy: impulseY),
                     angle: atan2(dy, dx) * 180 / .pi)
             }
         case .ended:
@@ -87,7 +89,7 @@ class GameEngine: NSObject {
             
             drop(
                 monkey: monkey,
-                vector: CGVector(dx: dx * 20, dy: dy * 35),
+                vector: CGVector(dx: impulseX, dy: impulseY),
                 angle: atan2(dy, dx) * 180 / .pi)
         default:
             break
@@ -117,27 +119,32 @@ class GameEngine: NSObject {
         houseNode.position = CGPoint(x: towerFrame.midX, y: towerFrame.midY)
         scene.addChild(houseNode)
         
-        let topRightBox = SKSpriteNode(color: UIColor(red: 30 / 255, green: 29 / 255, blue: 40 / 255, alpha: 1), size: CGSize(width: 100, height: 35))
+        let topRightBox = SKSpriteNode(
+            color: UIColor(red: 30 / 255, green: 29 / 255, blue: 40 / 255, alpha: 1),
+            size: CGSize(width: scene.size.width * 0.24, height: scene.size.width * 0.1))
         
         let monkeyIconNode = SKSpriteNode(imageNamed: "monkeyIcon")
-        monkeyIconNode.size = CGSize(width: 10, height: 10)
+        monkeyIconNode.size = CGSize(width: topRightBox.size.width * 0.1, height: topRightBox.size.width * 0.1)
         monkeyIconNode.anchorPoint = CGPoint(x: 0, y: 1)
-        monkeyIconNode.position = CGPoint(x: 5, y: topRightBox.size.height - 5)
+        monkeyIconNode.position = CGPoint(x: topRightBox.size.width * 0.05, y: topRightBox.size.height * 0.85)
         
         progressCount.fontColor = SKColor(white: 1, alpha: 1)
-        progressCount.fontSize = 10
+        progressCount.fontSize = topRightBox.size.height / 3
         progressCount.fontName = "AvenirNext-Medium"
-        progressCount.position = CGPoint(x: 25, y: topRightBox.size.height - 15)
+        progressCount.position = CGPoint(x: topRightBox.size.width * 0.27, y: topRightBox.size.height * 0.6)
         
         let houseIconNode = SKSpriteNode(imageNamed: "houseIcon")
-        houseIconNode.size = CGSize(width: 10, height: 10)
+        houseIconNode.size = CGSize(width: topRightBox.size.width * 0.1, height: topRightBox.size.width * 0.1)
         houseIconNode.anchorPoint = .zero
-        houseIconNode.position = CGPoint(x: 5, y: 5)
-        let progressContainer = SKSpriteNode(color: UIColor(red: 47 / 255, green: 50 / 255, blue: 58 / 255, alpha: 1), size: CGSize(width: 50, height: 10))
+        houseIconNode.position = CGPoint(x: topRightBox.size.width * 0.05, y: topRightBox.size.width * 0.05)
+        let progressContainer = SKSpriteNode(
+            color: UIColor(red: 47 / 255, green: 50 / 255, blue: 58 / 255, alpha: 1),
+            size: CGSize(width: topRightBox.size.width * 0.5, height: topRightBox.size.width * 0.1))
         progressContainer.anchorPoint = .zero
-        progressContainer.position = CGPoint(x: 25, y: 5)
+        progressContainer.position = CGPoint(x: topRightBox.size.width * 0.24, y: topRightBox.size.width * 0.05)
         houseHPNode.anchorPoint = .zero
-        houseHPNode.position = CGPoint(x: 1, y: 1)
+        houseHPNode.position = CGPoint(x: progressContainer.size.width * 0.02, y: progressContainer.size.height * 0.1)
+        houseHPNode.size = CGSize(width: progressContainer.size.width * 0.96, height: progressContainer.size.height * 0.8)
         progressContainer.addChild(houseHPNode)
         
         topRightBox.addChild(monkeyIconNode)
@@ -173,8 +180,11 @@ class GameEngine: NSObject {
     }
     
     private func spawn(monkey: Monkey, spawnDelay: TimeInterval) {
-        let halfMonkeyWidth = monkey.node.size.width / 2
-
+        let monkeyNodeWidth = monkey.node.size.width * scene.size.width / Constants.referenceScreenWidth
+        let halfMonkeyWidth = monkeyNodeWidth / 2
+        let monkeyNodeSize = CGSize(width: monkeyNodeWidth, height: monkeyNodeWidth * (monkey.node.size.height / monkey.node.size.width))
+        monkey.node.size = monkeyNodeSize
+        
         switch monkey.spawn {
         case .left:
             monkey.node.position.x = -halfMonkeyWidth
@@ -182,7 +192,7 @@ class GameEngine: NSObject {
             monkey.node.position.x = scene.size.width + halfMonkeyWidth
         }
         
-        monkey.node.position.y = groundY + monkey.node.size.height / 2
+        monkey.node.position.y = groundY + monkeyNodeSize.height / 2
         monkey.node.physicsBody = SKPhysicsBody(rectangleOf: monkey.node.size)
         monkey.node.physicsBody?.categoryBitMask = CategoryBitMask.monkey.rawValue
         monkey.node.physicsBody?.collisionBitMask = CategoryBitMask.ground.rawValue
@@ -222,7 +232,8 @@ class GameEngine: NSObject {
         let destinationX: CGFloat = .random(in: towerFrame.minX...(towerFrame.maxX - monkey.size.width / 2))
         monkey.xScale = monkey.position.x < destinationX ? 1 : -1
         
-        let walkDuration = (abs(monkey.position.x - destinationX)) / monkey.velocity.pointsPerSec
+        let walkDistance = abs(monkey.position.x - destinationX) / Constants.pointsInMeter
+        let walkDuration = walkDistance / monkey.velocity.metersPerSec
         let delayAction = SKAction.wait(forDuration: delay)
         let walkAnimation = SKAction.repeatForever(SKAction.animate(with: monkey.walkTextures, timePerFrame: 0.075))
         let moveAction = SKAction.moveTo(x: destinationX, duration: walkDuration)
@@ -233,7 +244,9 @@ class GameEngine: NSObject {
                 .run { [weak self] in
                     guard let self = self else { return }
                     self.level.houseHP -= monkey.hitPoints
-                    self.houseHPNode.size.width = max(Constants.houseHPMaxWidth * CGFloat(self.level.houseHP) / CGFloat(self.houseHPMax), 0)
+                    let houseHPContainerWidth = (self.houseHPNode.parent! as! SKSpriteNode).size.width
+                    let houseHPMaxWidth = houseHPContainerWidth * 0.96
+                    self.houseHPNode.size.width = max(houseHPMaxWidth * (CGFloat(self.level.houseHP) / CGFloat(self.houseHPMax)), 0)
                     self.stopIfNeeded()
                 }
             ]))
